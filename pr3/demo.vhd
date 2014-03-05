@@ -53,7 +53,7 @@ begin
 	enable <= '1' when btn = "0001" or 
 		btn = "0010" or btn = "0100" or btn = "1000" else '0';
 	comb: entity work.combiner
-		general map (4)
+		generic map (8)
 		port map(sw,  fun, enable, led);
 end simple;
 

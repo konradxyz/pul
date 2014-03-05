@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   15:21:27 03/04/2014
+-- Create Date:   14:44:53 03/05/2014
 -- Design Name:   
--- Module Name:   Z:/MGR/I/pul/projekty/pr3/demo_test.vhd
+-- Module Name:   E:/repos/pul/pr3/demo_test.vhd
 -- Project Name:  pr3
 -- Target Device:  
 -- Tool versions:  
@@ -42,35 +42,40 @@ ARCHITECTURE behavior OF demo_test IS
     COMPONENT demo
     PORT(
          sw : IN  std_logic_vector(7 downto 0);
-         led : OUT  std_logic_vector(7 downto 0)
+         led : OUT  std_logic_vector(7 downto 0);
+         btn : IN  std_logic_vector(3 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
    signal sw : std_logic_vector(7 downto 0) := (others => '0');
+   signal btn : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
    signal led : std_logic_vector(7 downto 0);
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
+ 
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: demo PORT MAP (
           sw => sw,
-          led => led
+          led => led,
+          btn => btn
         );
-
  
 
    -- Stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      sw <= x"01";
-		
+      wait for 100 ns;	
+		btn <= "0010";
+		sw <= "01010000";
+
 
       -- insert stimulus here 
 

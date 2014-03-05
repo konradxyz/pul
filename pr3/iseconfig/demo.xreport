@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-03-05T14:51:25</DateModified>
+  <DateModified>2014-03-05T13:21:55</DateModified>
   <ModuleName>demo</ModuleName>
-  <SummaryTimeStamp>2014-03-05T14:42:48</SummaryTimeStamp>
-  <SavedFilePath>E:/repos/pul/pr3/iseconfig/combiner.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>E:/Xilinx/workdir\</ImplementationReportsDirectory>
-  <DateInitialized>2014-03-05T14:51:24</DateInitialized>
+  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SavedFilePath>E:/repos/pul/pr3/iseconfig/demo.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/kp306410/Desktop/working_dir/pr3</ImplementationReportsDirectory>
+  <DateInitialized>2014-03-05T13:21:55</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
