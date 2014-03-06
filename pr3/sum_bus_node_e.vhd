@@ -43,8 +43,7 @@ end sum_bus_node_e;
 architecture sum_bus_node of sum_bus_node_e is
 	signal c : std_logic;
 begin
-	c <= '1' when enabled = '1' and (input = '1' or bottom_up = '1') else '0';
-	enable_next <= c;
-	output <= c;
+	output <= '1' when enabled = '1' and (input = '1' or from_prev = '1') else '0';
+	enable_next <= from_prev;
 end sum_bus_node;
 

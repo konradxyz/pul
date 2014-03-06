@@ -42,6 +42,7 @@ end combiner;
 architecture Behavioral of combiner is
 	signal min_out : std_logic_vector( n - 1 downto 0);
 	signal max_out : std_logic_vector( n - 1 downto 0);
+	signal sum_out : std_logic_vector( n - 1 downto 0);
 	signal comb_out : std_logic_vector( n - 1 downto 0);
 begin
 	min_comb: entity work.min_combiner_e 
@@ -50,10 +51,14 @@ begin
 	max_comb: entity work.max_combiner_e 
 		generic map(n)
 		port map (input, max_out);
+	sum_comb: entity work.sum_combiner_e 
+		generic map(n)
+		port map (input, sum_out);
 	with fun select
 		comb_out <= 
 			min_out when "00",
 			max_out when "01",
+			sum_out when "10",
 			input when others;
 	output <= comb_out when enable /= '0' else x"00";
 end Behavioral;

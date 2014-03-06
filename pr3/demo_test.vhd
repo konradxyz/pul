@@ -73,8 +73,8 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
-		btn <= "0010";
-		sw <= "01010000";
+		btn <= "0100";
+		sw <= "01010011";
 
 
       -- insert stimulus here 

@@ -30,7 +30,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity sum_bus_e is
-	generic(n: natural range 2 to 255);
+	generic(n: natural range 1 to 255);
 	port(
 		input: in std_logic_vector( n - 1 downto 0);
 		output: out std_logic;
@@ -40,13 +40,13 @@ entity sum_bus_e is
 end sum_bus_e;
 
 architecture sum_bus of sum_bus_e is
-	signal bottom_up: std_logic_vector( n downto 0);
+	signal bottom_up: std_logic_vector( n - 1 downto 0);
 begin
-	output <= bottom_up(n);
-	bottom_up(0) <= '0';
-	s_bus: for i in 0 to n generate
-		node : entity work.sum_bus_node_e port map(input(i), enabled(i),  bottom_up(i), enable_next(i), bottom_up(i + 1));
+	fnode : entity work.sum_bus_node_e port map(input(0), enabled(0),  '0', enable_next(0), bottom_up(0));
+	s_bus: for i in 1 to n - 1 generate
+		node : entity work.sum_bus_node_e port map(input(i), enabled(i),  bottom_up(i - 1), enable_next(i), bottom_up(i));
 	end generate s_bus;
+	output <= bottom_up(n - 1);
 
 end sum_bus;
 

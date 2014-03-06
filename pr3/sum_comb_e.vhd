@@ -30,7 +30,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity sum_combiner_e is
-	generic(n: natural range 2 to 255);
+	generic(n: natural range 1 to 255);
 	port (
 		input : in std_logic_vector(n - 1 downto 0);
 		output: out std_logic_vector(n - 1 downto 0)
@@ -38,9 +38,12 @@ entity sum_combiner_e is
 end sum_combiner_e;
 
 architecture sum_combiner of sum_combiner_e is
-
+	type N_LOGIC_VECTOR is array (n downto 0) of std_logic_vector(n - 1 downto 0);
+	signal bus_connectors: N_LOGIC_VECTOR;
 begin
-
-
+	bus_connectors(0) <= (others => '1');
+	s_comb: for i in 0 to n - 1 generate
+		s_bus : entity work.sum_bus_e generic map(n) port map(input, output(i),  bus_connectors(i + 1), bus_connectors(i));
+	end generate s_comb;
 end sum_combiner;
 
