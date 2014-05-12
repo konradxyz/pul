@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "E:/repos/pul/timer/bin_dec_converter_t_isim_beh.exe" -prj "E:/repos/pul/timer/bin_dec_converter_t_beh.prj" "work.bin_dec_converter_t" 

@@ -1,0 +1,2 @@
+vhdtdtfi -lib work digit_to_seg.vhd -prj timer -o digit_to_seg_e.spl -module digit_to_seg_e -template e:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e digit_to_seg_e.spl E:/repos/pul/timer/digit_to_seg_e.sym 
